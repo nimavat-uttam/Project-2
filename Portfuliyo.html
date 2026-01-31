@@ -1135,6 +1135,706 @@ section {
                 height: 480px;
             }
         }
+/* =========================================== */
+/* ENHANCED RESPONSIVE DESIGN - BEAUTIFUL LAYOUT */
+/* =========================================== */
+
+/* Large Desktop (1200px and below) */
+@media (max-width: 1200px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        gap: 4rem;
+        padding: 140px 5% 60px;
+    }
+
+    .hero-content,
+    .hero-photos {
+        width: 100%;
+        min-width: 100%;
+    }
+
+    .hero-content {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .hero-photos {
+        height: 500px;
+        margin-bottom: 1rem;
+    }
+
+    .photo-item {
+        width: 360px;
+        height: 460px;
+        border-radius: 20px;
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+    }
+
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .animated-photo-container {
+        order: 1; /* Photo first */
+        height: 550px;
+    }
+
+    .about-text {
+        order: 2; /* Text after photo */
+        padding: 2.5rem;
+        background: rgba(255, 255, 255, 0.06);
+        backdrop-filter: blur(20px);
+        border-radius: 24px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .skills-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+
+    .projects-container {
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    }
+}
+
+/* Tablet Landscape (992px and below) - SIDEBAR ACTIVATES */
+@media (max-width: 992px) {
+    /* =========== NAVIGATION - BEAUTIFUL SIDEBAR =========== */
+    .navbar {
+        top: 0;
+        width: 100%;
+        max-width: 100%;
+        border-radius: 0;
+        padding: 15px 25px;
+        background: rgba(10, 10, 12, 0.98);
+        backdrop-filter: blur(20px);
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .navbar.scrolled {
+        padding: 10px 25px;
+    }
+
+    .logo {
+        font-size: 1.6rem;
+        z-index: 1002;
+    }
+
+    /* Modern Hamburger Menu */
+    .menu-btn {
+        display: block;
+        width: 32px;
+        height: 32px;
+        cursor: pointer;
+        z-index: 1002;
+        position: relative;
+        background: transparent;
+        border: none;
+        padding: 0;
+    }
+
+    .menu-btn .bar {
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        background: var(--neon);
+        border-radius: 3px;
+        transition: all 0.3s ease;
+        left: 0;
+    }
+
+    .menu-btn .bar:nth-child(1) {
+        top: 6px;
+    }
+
+    .menu-btn .bar:nth-child(2) {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .menu-btn .bar:nth-child(3) {
+        bottom: 6px;
+    }
+
+    /* Sidebar Navigation - No JavaScript Needed */
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -320px;
+        flex-direction: column;
+        background: linear-gradient(135deg, 
+            rgba(10, 10, 12, 0.98), 
+            rgba(18, 18, 25, 0.98));
+        width: 300px;
+        height: 100vh;
+        padding: 100px 30px 40px;
+        backdrop-filter: blur(25px);
+        box-shadow: -10px 0 40px rgba(0, 0, 0, 0.5);
+        border-left: 1px solid rgba(255, 255, 255, 0.15);
+        z-index: 1001;
+        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        overflow-y: auto;
+    }
+
+    /* Magic: Show sidebar when checkbox is checked */
+    #menu-toggle:checked ~ .nav-links {
+        right: 0;
+    }
+
+    #menu-toggle:checked ~ .nav-overlay {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* Overlay for sidebar */
+    .nav-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(5px);
+        z-index: 1000;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+    }
+
+    /* Sidebar Links Styling */
+    .nav-links li {
+        width: 100%;
+        margin: 10px 0;
+        opacity: 0;
+        transform: translateX(20px);
+        transition: all 0.3s ease;
+    }
+
+    /* Show menu items when sidebar opens */
+    #menu-toggle:checked ~ .nav-links li {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    /* Staggered animation delays */
+    #menu-toggle:checked ~ .nav-links li:nth-child(1) { transition-delay: 0.1s; }
+    #menu-toggle:checked ~ .nav-links li:nth-child(2) { transition-delay: 0.15s; }
+    #menu-toggle:checked ~ .nav-links li:nth-child(3) { transition-delay: 0.2s; }
+    #menu-toggle:checked ~ .nav-links li:nth-child(4) { transition-delay: 0.25s; }
+    #menu-toggle:checked ~ .nav-links li:nth-child(5) { transition-delay: 0.3s; }
+
+    .nav-links a {
+        display: block;
+        padding: 16px 24px;
+        font-size: 1.1rem;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        text-align: left;
+    }
+
+    .nav-links a:hover {
+        background: rgba(0, 255, 157, 0.1);
+        transform: translateX(-5px);
+        border-color: rgba(0, 255, 157, 0.3);
+        box-shadow: 0 5px 15px rgba(0, 255, 157, 0.2);
+    }
+
+    .nav-links a::after {
+        display: none;
+    }
+
+    .nav-btn {
+        background: linear-gradient(45deg, var(--neon), var(--primary)) !important;
+        color: #000 !important;
+        font-weight: 700 !important;
+        margin-top: 20px !important;
+        text-align: center;
+        box-shadow: 0 5px 15px rgba(0, 255, 157, 0.3) !important;
+    }
+
+    .nav-btn:hover {
+        transform: translateY(-3px) !important;
+        box-shadow: 0 8px 25px rgba(0, 255, 157, 0.4) !important;
+    }
+
+    /* Close button for sidebar */
+    .close-sidebar {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 1002;
+        color: var(--neon);
+        font-size: 1.5rem;
+        border: none;
+        transition: all 0.3s ease;
+    }
+
+    .close-sidebar:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: rotate(90deg);
+    }
+
+    /* =========== HERO SECTION =========== */
+    .hero {
+        padding-top: 140px;
+        gap: 3rem;
+    }
+
+    .hero-content {
+        order: 2;
+    }
+
+    .hero-photos {
+        order: 1;
+        height: 450px;
+    }
+
+    /* Hero Photo - Circular Design */
+    .photo-item {
+        width: 280px;
+        height: 280px;
+        border-radius: 50%;
+        transform: translate(-50%, -50%) rotateY(0deg);
+        border: 3px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 
+            0 0 60px rgba(0, 255, 157, 0.3),
+            0 0 100px rgba(74, 0, 224, 0.2),
+            inset 0 0 30px rgba(255, 255, 255, 0.05);
+        animation: floatCircle 6s ease-in-out infinite;
+    }
+
+    @keyframes floatCircle {
+        0%, 100% {
+            transform: translate(-50%, -50%) scale(1) translateY(0);
+        }
+        50% {
+            transform: translate(-50%, -50%) scale(1.05) translateY(-15px);
+        }
+    }
+
+    .photo-item img {
+        border-radius: 50%;
+        filter: brightness(1.05) contrast(1.1);
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+        line-height: 1.2;
+    }
+
+    .hero h2 {
+        font-size: 1.5rem;
+    }
+
+    /* =========== ABOUT SECTION =========== */
+    /* PHOTO FIRST, THEN TEXT BELOW */
+    .animated-photo-container {
+        order: 1; /* Photo comes first */
+        height: 400px;
+        margin-bottom: 2rem;
+    }
+
+    /* About Photo - Circular with Effects (ANIMATION PRESERVED) */
+    #floatingPhoto {
+        width: 240px;
+        height: 240px;
+        border-radius: 50%;
+        padding: 10px;
+        transform: rotateY(0deg) rotateX(0deg);
+        animation: floatCircle 6s ease-in-out infinite 0.5s;
+        background: rgba(255, 255, 255, 0.05);
+        border: 3px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 
+            0 0 50px rgba(0, 255, 157, 0.25),
+            0 0 80px rgba(74, 0, 224, 0.15),
+            inset 0 0 25px rgba(255, 255, 255, 0.05);
+    }
+
+    #floatingPhoto img {
+        border-radius: 50%;
+        transform: translateZ(15px);
+    }
+
+    /* Enhanced Photo Effects (PRESERVED) */
+    .photo-glow {
+        width: 260px;
+        height: 260px;
+        border-radius: 50%;
+        background: radial-gradient(circle, 
+            rgba(0, 255, 157, 0.3) 0%, 
+            rgba(74, 0, 224, 0.2) 40%, 
+            transparent 70%);
+        filter: blur(25px);
+        animation: glowPulse 4s ease-in-out infinite;
+    }
+
+    /* Adjust orbits (PRESERVED) */
+    .orbit:nth-child(1) {
+        width: 300px;
+        height: 300px;
+        top: -30px;
+        left: -30px;
+        animation: orbitSpin 20s linear infinite reverse;
+    }
+
+    .orbit:nth-child(2) {
+        width: 350px;
+        height: 350px;
+        top: -55px;
+        left: -55px;
+        animation: orbitSpin 30s linear infinite;
+    }
+
+    .orbit:nth-child(3) {
+        width: 400px;
+        height: 400px;
+        top: -80px;
+        left: -80px;
+        animation: orbitSpin 35s linear infinite reverse;
+    }
+
+    /* About Text - COMES BELOW PHOTO */
+    .about-text {
+        order: 2; /* Text comes after photo */
+        padding: 2rem;
+        background: linear-gradient(145deg, 
+            rgba(255, 255, 255, 0.05), 
+            rgba(255, 255, 255, 0.02));
+        backdrop-filter: blur(15px);
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 
+            0 10px 30px rgba(0, 0, 0, 0.2),
+            inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        margin-top: 0;
+    }
+
+    .about-text h3 {
+        font-size: 2rem;
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+
+    .about-text p {
+        text-align: center;
+        font-size: 1.05rem;
+        line-height: 1.7;
+    }
+
+    /* =========== SKILLS & PROJECTS =========== */
+    .skills-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    .skill-card,
+    .project-card {
+        padding: 1.8rem;
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .skill-card:hover,
+    .project-card:hover {
+        transform: translateY(-8px);
+        background: rgba(255, 255, 255, 0.06);
+        border-color: rgba(0, 255, 157, 0.3);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Hide cursor on mobile */
+    .cursor,
+    .cursor-follower {
+        display: none;
+    }
+}
+
+/* Tablet Portrait (768px and below) */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero h2 {
+        font-size: 1.3rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .photo-item {
+        width: 260px;
+        height: 260px;
+    }
+
+    #floatingPhoto {
+        width: 220px;
+        height: 220px;
+    }
+
+    .photo-glow {
+        width: 240px;
+        height: 240px;
+    }
+
+    .hero-photos {
+        height: 380px;
+    }
+
+    .animated-photo-container {
+        height: 350px;
+    }
+
+    .about-text h3 {
+        font-size: 1.8rem;
+    }
+
+    .about-text p {
+        font-size: 1.05rem;
+        line-height: 1.7;
+    }
+
+    .skills-container {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+    }
+
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .nav-links {
+        width: 280px;
+        padding: 90px 25px 40px;
+    }
+
+    /* Button adjustments */
+    .btn {
+        padding: 14px 28px;
+        font-size: 1rem;
+    }
+}
+
+/* Mobile Landscape (576px and below) */
+@media (max-width: 576px) {
+    .hero {
+        padding: 130px 4% 50px;
+        gap: 2.5rem;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero h2 {
+        font-size: 1.2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    .photo-item {
+        width: 240px;
+        height: 240px;
+    }
+
+    #floatingPhoto {
+        width: 200px;
+        height: 200px;
+    }
+
+    .photo-glow {
+        width: 220px;
+        height: 220px;
+    }
+
+    /* Adjust orbits */
+    .orbit:nth-child(1) {
+        width: 260px;
+        height: 260px;
+        top: -30px;
+        left: -30px;
+    }
+
+    .orbit:nth-child(2) {
+        width: 300px;
+        height: 300px;
+        top: -50px;
+        left: -50px;
+    }
+
+    .orbit:nth-child(3) {
+        width: 340px;
+        height: 340px;
+        top: -70px;
+        left: -70px;
+    }
+
+    .hero-photos {
+        height: 350px;
+    }
+
+    .animated-photo-container {
+        height: 320px;
+    }
+
+    .section {
+        padding: 70px 4% 40px;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .about-text {
+        padding: 1.5rem;
+    }
+
+    .about-text h3 {
+        font-size: 1.7rem;
+        margin-bottom: 1.2rem;
+    }
+
+    .projects-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .project-img {
+        height: 180px;
+    }
+
+    /* Navigation adjustments */
+    .nav-links {
+        width: 260px;
+        padding: 80px 20px 30px;
+    }
+
+    .nav-links a {
+        padding: 14px 20px;
+        font-size: 1rem;
+    }
+
+    .navbar {
+        padding: 12px 20px;
+    }
+
+    .logo {
+        font-size: 1.4rem;
+    }
+}
+
+/* Small Mobile (400px and below) */
+@media (max-width: 400px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero h2 {
+        font-size: 1.1rem;
+    }
+
+    .photo-item {
+        width: 220px;
+        height: 220px;
+    }
+
+    #floatingPhoto {
+        width: 180px;
+        height: 180px;
+    }
+
+    .photo-glow {
+        width: 200px;
+        height: 200px;
+    }
+
+    .hero-photos {
+        height: 320px;
+    }
+
+    .animated-photo-container {
+        height: 280px;
+    }
+
+    .section-title {
+        font-size: 1.6rem;
+    }
+
+    .about-text h3 {
+        font-size: 1.5rem;
+    }
+
+    .nav-links {
+        width: 240px;
+    }
+
+    .btn {
+        padding: 12px 24px;
+        font-size: 0.95rem;
+    }
+}
+
+/* =========================================== */
+/* NO-JAVASCRIPT SIDEBAR TOGGLE */
+/* =========================================== */
+
+/* Hide the checkbox */
+#menu-toggle {
+    display: none;
+}
+
+/* Menu button click effect */
+#menu-toggle:checked + .navbar .menu-btn .bar:nth-child(1) {
+    transform: translateY(10px) rotate(45deg);
+    top: 50%;
+}
+
+#menu-toggle:checked + .navbar .menu-btn .bar:nth-child(2) {
+    opacity: 0;
+}
+
+#menu-toggle:checked + .navbar .menu-btn .bar:nth-child(3) {
+    transform: translateY(-10px) rotate(-45deg);
+    top: 50%;
+}
+
+/* Smooth scroll animations preserved */
+.scroll-animation {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+.scroll-animation.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* All animations are preserved - nothing removed! */
+    
     </style>
 </head>
 
@@ -1146,23 +1846,35 @@ section {
     <!-- 3D Container -->
     <div class="container-3d">
         <!-- Unique Navigation -->
-       <nav class="navbar">
+      <!-- Add this hidden checkbox for no-JS sidebar -->
+<input type="checkbox" id="menu-toggle" style="display: none;">
+
+<nav class="navbar">
     <div class="nav-container">
         <a href="#" class="logo">UTTAM<span>.</span></a>
         
+        <!-- Menu Button (label for checkbox) -->
+        <label for="menu-toggle" class="menu-btn" id="menu-btn">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </label>
+        
+        <!-- Overlay for sidebar (click to close) -->
+        <label for="menu-toggle" class="nav-overlay"></label>
+        
         <ul class="nav-links" id="nav-links">
+            <!-- Close button inside sidebar -->
+            <label for="menu-toggle" class="close-sidebar">
+                <i class="fas fa-times"></i>
+            </label>
+            
             <li><a href="#home" class="active">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#contact" class="nav-btn">Hire Me</a></li>
         </ul>
-
-        <div class="menu-btn" id="menu-btn">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-        </div>
     </div>
 </nav>
 
