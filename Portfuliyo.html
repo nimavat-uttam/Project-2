@@ -1004,63 +1004,58 @@
             bottom: 2em;
             right: 2em;
             z-index: 2000;
-
         }
 
         .circular-menu .floating-btn {
-            display: block;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             width: 3.5em;
             height: 3.5em;
             border-radius: 50%;
             background-color: #00ff9d;
             color: #0a192f;
-            text-align: center;
-            line-height: 3.9;
             cursor: pointer;
             box-shadow: 0 0 20px rgba(0, 255, 157, 0.4);
-            transition: transform 0.2s;
-        }
-
-        .circular-menu .floating-btn i {
-            font-size: 1.5em;
-            transition: transform .2s;
-        }
-
-        .circular-menu.active .floating-btn i {
-            transform: rotate(-45deg);
         }
 
         .circular-menu .menu-item {
             position: absolute;
-            top: 0.2em;
-            right: 0.2em;
+            top: 0;
+            right: 0;
             z-index: -1;
-            display: block;
             width: 3em;
             height: 3em;
             border-radius: 50%;
-            text-align: center;
-            line-height: 3;
             background-color: #1b1b1b;
-            color: white;
             transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            list-style: none;
+        }
+
+        .circular-menu .menu-item a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            color: white;
             text-decoration: none;
         }
 
-        /* Icons na positions */
-        .circular-menu.active .menu-item:nth-child(1) {
+        /* Correct nth-child selector */
+        .circular-menu.active .items-wrapper .menu-item:nth-child(1) {
             transform: translate3d(0, -6em, 0);
         }
 
-        .circular-menu.active .menu-item:nth-child(2) {
+        .circular-menu.active .items-wrapper .menu-item:nth-child(2) {
             transform: translate3d(-4em, -5em, 0);
         }
 
-        .circular-menu.active .menu-item:nth-child(3) {
+        .circular-menu.active .items-wrapper .menu-item:nth-child(3) {
             transform: translate3d(-6em, -1em, 0);
         }
 
-        .circular-menu.active .menu-item:nth-child(4) {
+        .circular-menu.active .items-wrapper .menu-item:nth-child(4) {
             transform: translate3d(-5.5em, 3em, 0);
         }
 
@@ -1868,34 +1863,26 @@
 
 <body>
     <!-- Custom Cursor -->
-    <div class="cursor"></div>
-    <div class="cursor-follower"></div>
-    <div id="circularMenu" class="circular-menu">
+   <div id="circularMenu" class="circular-menu">
 
-        <a class="floating-btn" onclick="document.getElementById('circularMenu').classList.toggle('active');">
-            <i class="fa fa-plus"></i>
-        </a>
+    <button class="floating-btn" 
+        onclick="document.getElementById('circularMenu').classList.toggle('active');">
+        <i class="fa fa-plus"></i>
+    </button>
 
-        <ul class="items-wrapper">
-            <li class="menu-item">
-                <a href="#" class="fa fa-google-plus"></a>
-            </li>
-            <li class="menu-item">
-                <a href="#" class="fa fa-facebook"></a>
-            </li>
-            <li class="menu-item">
-                <a href="#" class="fa fa-twitter"></a>
-            </li>
-            <li class="menu-item">
-                <a href="#" class="fa fa-linkedin"></a>
-            </li>
-        </ul>
+    <ul class="items-wrapper">
+        <li class="menu-item"><a href="#"><i class="fa-solid fa-house"></i></a></li>
+        <li class="menu-item"><a href="#"><i class="fa-solid fa-arrow-up"></i></a></li>
+        <li class="menu-item"><a href="#"><i class="fa-solid fa-circle-user"></i></a></li>
+        <li class="menu-item"><a href="#"><i class="fa-solid fa-bars"></i></a></li>
+    </ul>
 
-    </div>
+</div>
+
 
     <!-- 3D Container -->
     <div class="container-3d">
-       
+
         <input type="checkbox" id="menu-toggle" style="display: none;">
 
         <nav class="navbar">
@@ -1911,7 +1898,7 @@
                 <label for="menu-toggle" class="nav-overlay"></label>
 
                 <ul class="nav-links" id="nav-links">
-                           <label for="menu-toggle" class="close-sidebar">
+                    <label for="menu-toggle" class="close-sidebar">
                         <i class="fas fa-times"></i>
                     </label>
 
@@ -1923,20 +1910,7 @@
                 </ul>
             </div>
         </nav>
-        <div id="circularMenu" class="circular-menu">
-
-            <a class="floating-btn" onclick="document.getElementById('circularMenu').classList.toggle('active');">
-                <i class="fa fa-plus"></i>
-            </a>
-
-            <menu class="items-wrapper">
-                <a href="#" class="menu-item fa fa-facebook"></a>
-                <a href="#" class="menu-item fa fa-twitter"></a>
-                <a href="#" class="menu-item fa fa-google-plus"></a>
-                <a href="#" class="menu-item fa fa-linkedin"></a>
-            </menu>
-
-        </div>
+       
 
         <!-- Hero Section with One Photo -->
         <section class="hero" id="home">
