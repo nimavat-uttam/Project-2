@@ -11,42 +11,42 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            /* User ko text select karne se rokne ke liye (Optional, professional lagta hai) */
+
             -webkit-tap-highlight-color: transparent;
         }
 
-        /* Sabse pehle root aur body ko check karo */
+
         html,
         body {
             margin: 0;
             padding: 0;
             width: 100%;
-            /* 'height: 100vh' ko 'min-height: 100%' karo taaki content niche ja sake */
+
             min-height: 100%;
-            /* 'overflow: hidden' ko sirf X-axis (left-right) ke liye rakho */
+
             overflow-x: hidden;
             overflow-y: auto;
             scroll-behavior: smooth;
             background-color: #0a0a0c;
-            /* Aapka background color */
+
         }
 
-        /* Agar aapne koi 'container' ya 'wrapper' div banaya hai poore page ke liye */
+
         .wrapper,
         .main-container {
             width: 100%;
             position: relative;
             overflow: visible;
-            /* Isko visible hona chahiye scroll ke liye */
+
         }
 
-        /* Sections ko height fixed mat dena */
+
         section {
             width: 100%;
             min-height: 100vh;
-            /* Har section kam se kam ek screen jitna bada ho */
+
             padding: 80px 10% 40px;
-            /* Top padding navbar ke liye */
+
             box-sizing: border-box;
         }
 
@@ -124,19 +124,19 @@
         .navbar {
             position: fixed;
             top: 20px;
-            /* Thoda niche se start hoga floating look ke liye */
+
             left: 50%;
             transform: translateX(-50%);
             width: 90%;
             max-width: 1200px;
             padding: 15px 40px;
             background: rgba(10, 10, 12, 0.75);
-            /* Dark transparent */
+
             backdrop-filter: blur(15px);
-            /* Glass effect */
+
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 50px;
-            /* Capsule shape */
+
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -144,7 +144,7 @@
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* Jab page scroll ho to navbar shrink ho jaye */
+
         .navbar.scrolled {
             top: 0;
             width: 100%;
@@ -163,7 +163,7 @@
 
         .logo span {
             color: var(--neon);
-            /* Neon dot for style */
+
         }
 
         .nav-links {
@@ -237,7 +237,7 @@
             animation: float 6s ease-in-out infinite;
             min-width: 50%;
         }
-  
+
         @keyframes float {
 
             0%,
@@ -368,7 +368,7 @@
         .btn:hover::after {
             opacity: 1;
         }
-    
+
         /* 3D Shapes */
         .shape {
             position: absolute;
@@ -453,7 +453,7 @@
             width: 100%;
         }
 
-        /* Animated Photo Container */
+
         .animated-photo-container {
             position: relative;
             height: 600px;
@@ -464,20 +464,20 @@
         /* Hero Image Container */
         .hero-image-container {
             perspective: 1500px;
-            /* 3D depth badhane ke liye */
+
             position: relative;
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
-        /* Floating Photo 3D Design */
+
         #floatingPhoto {
             position: relative;
             width: 320px;
             height: 400px;
             background: rgba(255, 255, 255, 0.05);
-            /* Glass effect */
+
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 20px;
@@ -485,7 +485,6 @@
             transform-style: preserve-3d;
             transition: all 0.5s ease-out;
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
-            /* Initial tilt */
             transform: rotateY(-15deg) rotateX(10deg);
         }
 
@@ -495,19 +494,17 @@
             height: 100%;
             object-fit: cover;
             border-radius: 12px;
-            /* Isko frame se thoda bahar nikalne ke liye (Z-axis move) */
+
             transform: translateZ(50px);
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
         }
 
-        /* Blue Glow Light - Image ke piche move karne ke liye */
         #floatingPhoto::before {
             content: '';
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%) translateZ(-30px);
-            /* Piche bhej diya */
             width: 110%;
             height: 110%;
             background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
@@ -1007,7 +1004,7 @@
             bottom: 2em;
             right: 2em;
             z-index: 2000;
-            /* Badha elements ni upar rehse */
+
         }
 
         .circular-menu .floating-btn {
@@ -1016,7 +1013,6 @@
             height: 3.5em;
             border-radius: 50%;
             background-color: #00ff9d;
-            /* Tamara theme mujab neon green */
             color: #0a192f;
             text-align: center;
             line-height: 3.9;
@@ -1032,7 +1028,6 @@
 
         .circular-menu.active .floating-btn i {
             transform: rotate(-45deg);
-            /* Plus mathi Cross thase */
         }
 
         .circular-menu .menu-item {
@@ -1073,7 +1068,6 @@
         /* ENHANCED RESPONSIVE DESIGN - BEAUTIFUL LAYOUT */
         /* =========================================== */
 
-        /* Large Desktop (1200px and below) */
         @media (max-width: 1200px) {
             .hero {
                 flex-direction: column;
@@ -1138,7 +1132,6 @@
             }
         }
 
-        /* Tablet Landscape (992px and below) - SIDEBAR ACTIVATES */
         @media (max-width: 992px) {
 
             /* =========== NAVIGATION - BEAUTIFUL SIDEBAR =========== */
@@ -1397,15 +1390,12 @@
             }
 
             /* =========== ABOUT SECTION =========== */
-            /* PHOTO FIRST, THEN TEXT BELOW */
             .animated-photo-container {
                 order: 1;
-                /* Photo comes first */
                 height: 400px;
                 margin-bottom: 2rem;
             }
 
-            /* About Photo - Circular with Effects (ANIMATION PRESERVED) */
             #floatingPhoto {
                 width: 240px;
                 height: 240px;
@@ -1467,7 +1457,7 @@
             /* About Text - COMES BELOW PHOTO */
             .about-text {
                 order: 2;
-                /* Text comes after photo */
+
                 padding: 2rem;
                 background: linear-gradient(145deg,
                         rgba(255, 255, 255, 0.05),
@@ -1905,27 +1895,23 @@
 
     <!-- 3D Container -->
     <div class="container-3d">
-        <!-- Unique Navigation -->
-        <!-- Add this hidden checkbox for no-JS sidebar -->
+       
         <input type="checkbox" id="menu-toggle" style="display: none;">
 
         <nav class="navbar">
             <div class="nav-container">
                 <a href="#" class="logo">UTTAM<span>.</span></a>
 
-                <!-- Menu Button (label for checkbox) -->
                 <label for="menu-toggle" class="menu-btn" id="menu-btn">
                     <div class="bar"></div>
                     <div class="bar"></div>
                     <div class="bar"></div>
                 </label>
 
-                <!-- Overlay for sidebar (click to close) -->
                 <label for="menu-toggle" class="nav-overlay"></label>
 
                 <ul class="nav-links" id="nav-links">
-                    <!-- Close button inside sidebar -->
-                    <label for="menu-toggle" class="close-sidebar">
+                           <label for="menu-toggle" class="close-sidebar">
                         <i class="fas fa-times"></i>
                     </label>
 
@@ -1984,7 +1970,6 @@
         <section class="section" id="about">
             <h2 class="section-title">About Me</h2>
             <div class="about-content">
-                <!-- Animated Photo with Unique Effects -->
                 <div class="animated-photo-container scroll-animation">
                     <div class="photo-glow"></div>
                     <div class="photo-orbits">
@@ -2026,7 +2011,7 @@
                 <div class="skill-card scroll-animation">
                     <i class="fas fa-code"></i>
                     <h3>Frontend Development</h3>
-                    <p>HTML5, CSS3, JavaScript, , Responsive Design,  CSS Animations</p>
+                    <p>HTML5, CSS3, JavaScript, , Responsive Design, CSS Animations</p>
                 </div>
 
                 <div class="skill-card scroll-animation">
@@ -2044,7 +2029,7 @@
                 <div class="skill-card scroll-animation">
                     <i class="fas fa-paint-brush"></i>
                     <h3>UI/UX & 3D Design Lernig </h3>
-                    <p>Figma, Adobe XD,  Interactive Animations, Design Systems</p>
+                    <p>Figma, Adobe XD, Interactive Animations, Design Systems</p>
                 </div>
             </div>
     </div>

@@ -2,13 +2,13 @@ const express = require('express');
 const mysql = require('mysql2');
 const nodemailer = require('nodemailer');
 const cors = require('cors');
-const path = require('path'); // આ લાઈન ઉમેરવી જરૂરી છે
+const path = require('path'); 
 require('dotenv').config();
 
 const app = express();
 app.use(express.json());
 app.use(cors());
-app.use(express.static(__dirname)); // આ લાઈન CSS અને ઈમેજ લોડ કરવા માટે છે
+app.use(express.static(__dirname)); 
 
 // 1. MySQL Connection
 const db = mysql.createConnection({
@@ -35,12 +35,12 @@ const transporter = nodemailer.createTransport({
     }
 });
 
-// --- નવો ફેરફાર: localhost:5000 ખોલવા માટે ---
+
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'Portfuliyo.html'));
 });
 
-// 3. API Route (ફક્ત એક જ વાર રાખવી)
+// 3. API Route 
 app.post('/api/contact', (req, res) => {
     const { name, email, message } = req.body;
     console.log("Backend received:", name, email);
@@ -54,7 +54,7 @@ app.post('/api/contact', (req, res) => {
         }
         console.log("Data saved to SQL!");
 
-        // Email મોકલવાનો લોજિક
+        // Email 
         const mailOptions = {
             from: process.env.EMAIL_USER,
             to: email,
@@ -65,7 +65,7 @@ app.post('/api/contact', (req, res) => {
         transporter.sendMail(mailOptions, (error, info) => {
             if (error) {
                 console.log("Email Error: " + error);
-                // જો ઈમેઈલ ન જાય તો પણ ડેટાબેઝમાં સેવ થઈ ગયો છે
+               
                 return res.status(200).json({ success: true, message: "Saved to DB, but email failed." });
             }
             res.status(200).json({ success: true, message: "Data saved and Email sent!" });
